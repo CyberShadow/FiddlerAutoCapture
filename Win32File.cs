@@ -144,15 +144,15 @@ namespace System.IO
 		}
 		#endregion
 
-        public static string LongFileName(string filepath)
-        {
+		public static string LongFileName(string filepath)
+		{
 			// If file path is disk file path then prepend it with \\?\
 			// if file path is UNC prepend it with \\?\UNC\ and remove \\ prefix in unc path.
 			if (filepath.StartsWith(@"\\"))
 				return @"\\?\UNC\" + filepath.Substring(2, filepath.Length - 2);
 			else
 				return @"\\?\" + filepath;
-        }
+		}
 
 		public static FileStream Open(string filepath, FileMode mode)
 		{

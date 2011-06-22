@@ -19,12 +19,11 @@ using System.Reflection;
 
 public class AutoCapture : IAutoTamper
 {
-    public void OnLoad() {
-    }
-
-    public void AutoTamperRequestBefore(Session oSession) {}
+	public void OnLoad() {}
+	public void AutoTamperRequestBefore(Session oSession) {}
 	public void AutoTamperRequestAfter(Session oSession) {}
-    public void AutoTamperResponseBefore(Session oSession) {
+
+	public void AutoTamperResponseBefore(Session oSession) {
 		if (/*oSession.oResponse.headers.ExistsAndContains("Content-Type", "application/x-shockwave-flash")*/true) {
 			String path = oSession.host + oSession.PathAndQuery;
 			
@@ -92,8 +91,9 @@ public class AutoCapture : IAutoTamper
 				s.Close();
 			} catch(Exception e) { throw new Exception("Close failure: " + path, e); }
 		}
-    }
-    public void AutoTamperResponseAfter(Session oSession) {}
-    public void OnBeforeReturningError(Session oSession) {}
-    public void OnBeforeUnload() {}
+	}
+
+	public void AutoTamperResponseAfter(Session oSession) {}
+	public void OnBeforeReturningError(Session oSession) {}
+	public void OnBeforeUnload() {}
 }
